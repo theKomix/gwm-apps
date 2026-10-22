@@ -1,4 +1,5 @@
 {
   "dimmer": {"name": "Яркость день/ночь", "package": "com.tank300.dimmer"},
-  "tboxrules": {"name": "TBOX: только Wi-Fi", "package": "com.komix.gwmtboxrules"}
+  "tboxrules": {"name": "TBOX: только Wi-Fi", "package": "com.komix.gwmtboxrules"},
+  "comfort": {"name": "GWM Comfort", "package": "com.tank300.comfort"}
 }
