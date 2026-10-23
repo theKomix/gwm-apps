@@ -4,6 +4,9 @@
 меню, а смартфон подключается к нему как компьютер. Модифицированная прошивка и DSp для этого
 не нужны. Способ проверен на Haval Dargo.
 
+На прошивке GWM-club кабель и инженерное меню не нужны: APK ставится прямо на ГУ, см.
+[инструкцию для GWM-club](INSTALL-CLUB.md).
+
 Понадобятся:
 - смартфон на Android с приложением
   [Bugjaeger Mobile ADB](https://play.google.com/store/apps/details?id=eu.sisik.hackendebug);
