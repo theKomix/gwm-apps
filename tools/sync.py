@@ -23,6 +23,7 @@ APPS = {
     "dimmer": "dimmer-v",
     "tboxrules": "tboxrules-v",
     "comfort": "comfort-v",
+    "gwm-install": "gwm-install-v",
 }
 
 
@@ -64,8 +65,12 @@ def notes(body):
     return items
 
 
-def apk(rel):
-    return next((a for a in rel["assets"] if a["name"].endswith(".apk")), None)
+def apks(rel):
+    return [a for a in rel["assets"] if a["name"].endswith(".apk")]
+
+
+def links(rel):
+    return ", ".join(f"[{a['name']}]({a['browser_download_url']})" for a in apks(rel))
 
 
 def date(rel):
@@ -75,10 +80,9 @@ def date(rel):
 def page_block(folder, prefix, rels):
     last = rels[0]
     v = last["tag_name"][len(prefix):]
-    a = apk(last)
     parts = [
         f"Актуальная версия — **{v}** от {date(last)}: "
-        f"[{a['name']}]({a['browser_download_url']}), "
+        f"{links(last)}, "
         f"[описание релиза]({last['html_url']}).",
         "",
         *notes(last["body"]),
@@ -87,14 +91,13 @@ def page_block(folder, prefix, rels):
         parts += ["", "Предыдущие версии:", ""]
         for r in rels[1:]:
             rv = r["tag_name"][len(prefix):]
-            ra = apk(r)
             parts += [
                 "<details>",
                 f"<summary>{rv} от {date(r)}</summary>",
                 "",
                 *notes(r["body"]),
                 "",
-                f"[{ra['name']}]({ra['browser_download_url']}), [описание релиза]({r['html_url']}).",
+                f"{links(r)}, [описание релиза]({r['html_url']}).",
                 "",
                 "</details>",
                 "",
@@ -129,7 +132,7 @@ def main():
     rtext = readme.read_text()
     for folder, prefix in APPS.items():
         rels = sorted(
-            (r for r in allr if r["tag_name"].startswith(prefix) and apk(r)),
+            (r for r in allr if r["tag_name"].startswith(prefix) and apks(r)),
             key=lambda r: version_key(r["tag_name"][len(prefix):]),
             reverse=True,
         )
