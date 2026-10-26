@@ -7,7 +7,7 @@
 |---|---|---|
 | [Яркость день/ночь](dimmer/README.md) | <!-- v:dimmer --> [3.6](https://github.com/theKomix/gwm-apps/releases/tag/dimmer-v3.6) <!-- /v --> | Отдельная яркость экранов днём и ночью, переключается по автосвету |
 | [TBOX: только Wi-Fi](tboxrules/README.md) | <!-- v:tboxrules --> [0.1.0](https://github.com/theKomix/gwm-apps/releases/tag/tboxrules-v0.1.0) <!-- /v --> | Интернет для приложений на ГУ — только через Wi-Fi, трафик сим-карты TBOX не тратится |
-| [GWM Comfort](comfort/README.md) | <!-- v:comfort --> [0.7](https://github.com/theKomix/gwm-apps/releases/tag/comfort-v0.7) <!-- /v --> | Сценарии комфорта: по запуску двигателя, дню и ночи, включению ГУ, пассажиру включает подогрев, вентиляцию, обогрев, меняет яркость и источник звука |
+| [GWM Comfort](comfort/README.md) | <!-- v:comfort --> [0.7.1](https://github.com/theKomix/gwm-apps/releases/tag/comfort-v0.7.1) <!-- /v --> | Сценарии комфорта: по запуску двигателя, дню и ночи, включению ГУ, пассажиру включает подогрев, вентиляцию, обогрев, меняет яркость и источник звука |
 | [GWM Install](gwm-install/README.md) | <!-- v:gwm-install --> [0.1.1](https://github.com/theKomix/gwm-apps/releases/tag/gwm-install-v0.1.1) <!-- /v --> | Ставит APK на ГУ с телефона по Wi-Fi, в том числе на штатных прошивках: кабель нужен один раз, для самого менеджера |
 
 ## Общее для всех
