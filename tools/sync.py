@@ -138,6 +138,11 @@ def main():
         )
         if not rels:
             raise SystemExit(f"{folder}: нет стабильных релизов")
+        # каталог на телефоне не показывает релиз без <имя APK>.sha256
+        names = {a["name"] for r in rels for a in r["assets"]}
+        lost = [f"{r['tag_name']}: {a['name']}.sha256" for r in rels for a in apks(r) if a["name"] + ".sha256" not in names]
+        if lost:
+            raise SystemExit("нет файла суммы у релиза: " + ", ".join(lost))
         page = ROOT / folder / "README.md"
         write(page, replace(page.read_text(), "<!-- versions -->", "<!-- /versions -->", page_block(folder, prefix, rels)))
         v = rels[0]["tag_name"][len(prefix):]
