@@ -1,5 +1,7 @@
 # Приложения для головных устройств GWM
 
+> Приложения бесплатны. Если они пригодились, можно [поблагодарить автора](https://pay.cloudtips.ru/p/1e6ed2bf).
+
 Здесь лежат описания небольших приложений для ГУ Tank и Haval на платформе Aptiv с Android 9,
 а готовые APK — в разделе [Releases](https://github.com/theKomix/gwm-apps/releases).
 
