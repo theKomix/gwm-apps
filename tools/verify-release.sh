@@ -7,7 +7,7 @@
 #   Ключ --no-prev пропускает сравнение versionCode с предыдущей версией (оно качает APK прошлого релиза).
 #
 # Проверяет у каждого APK релиза:
-#   0. состав релиза: у gwm-install ровно два APK (-hu- и -phone-), у остальных ровно один; .sha256 и .sig только к своему APK;
+#   0. состав релиза: у gwm-install -hu- и -phone- по одному, плюс не больше одного -lite- (облегчённый клиент, с 0.2.1), других APK нет; у остальных ровно один; .sha256 и .sig только к своему APK;
 #      ключи tools/catalog-keys.txt совпадают с CatalogSig.KEYS в ../gwm-install (если он рядом);
 #   1. рядом есть <имя>.sha256 и <имя>.sig;
 #   2. SHA-256 файла совпадает с первым словом из <имя>.sha256;
@@ -94,8 +94,10 @@ echo "Состав релиза"
 NAPK="$(printf '%s\n' "$APKS" | grep -c .)"
 if [ "$APP" = "gwm-install" ]; then
   NHU="$(printf '%s\n' "$APKS" | grep -c -e '-hu-')"; NPH="$(printf '%s\n' "$APKS" | grep -c -e '-phone-')"
-  if [ "$NHU" = 1 ] && [ "$NPH" = 1 ] && [ "$NAPK" = 2 ]; then good "два APK менеджера: -hu- и -phone-"
-  else bad "у релиза менеджера должны быть ровно два APK, -hu- и -phone- (сейчас: всего $NAPK, -hu- $NHU, -phone- $NPH)"; fi
+  NLT="$(printf '%s\n' "$APKS" | grep -c -e '-lite-')"
+  if [ "$NHU" = 1 ] && [ "$NPH" = 1 ] && [ "$NLT" -le 1 ] && [ "$NAPK" = $((2+NLT)) ]; then
+    if [ "$NLT" = 1 ]; then good "три APK менеджера: -hu-, -phone- и -lite-"; else good "два APK менеджера: -hu- и -phone-"; fi
+  else bad "у релиза менеджера должны быть -hu- и -phone- по одному и не больше одного -lite- (сейчас: всего $NAPK, -hu- $NHU, -phone- $NPH, -lite- $NLT)"; fi
 else
   if [ "$NAPK" = 1 ]; then good "один APK"; else bad "у релиза $APP должен быть ровно один APK, сейчас $NAPK"; fi
 fi
@@ -129,7 +131,7 @@ pkg_expected() {  # $1 = имя APK
   if [ "$APP" = "gwm-install" ]; then
     case "$1" in
       *-hu-*)    echo com.tank300.install ;;
-      *-phone-*) echo com.tank300.installer ;;
+      *-phone-*|*-lite-*) echo com.tank300.installer ;;
       *) echo "" ;;
     esac
   else
@@ -197,8 +199,10 @@ else
       bad "не удалось скачать APK предыдущей версии $PREFIX$PREV"
     else
       while read -r APK CODE; do
-        case "$APK" in *-hu-*) ROLE="*-hu-*.apk" ;; *-phone-*) ROLE="*-phone-*.apk" ;; *) ROLE="*.apk" ;; esac
+        case "$APK" in *-hu-*) ROLE="*-hu-*.apk" ;; *-phone-*) ROLE="*-phone-*.apk" ;; *-lite-*) ROLE="*-lite-*.apk" ;; *) ROLE="*.apk" ;; esac
         PA="$(cd "$PD" && ls $ROLE 2>/dev/null | head -1)"
+        # у первого релиза с облегчённым клиентом предыдущего -lite- нет: пакет тот же, что у -phone-
+        [ -z "$PA" ] && case "$APK" in *-lite-*) PA="$(cd "$PD" && ls *-phone-*.apk 2>/dev/null | head -1)" ;; esac
         if [ -z "$PA" ]; then bad "у $PREFIX$PREV нет APK того же вида, что $APK"; continue; fi
         read -r _ PCODE _ <<EOF
 $(badging "$PD/$PA")
