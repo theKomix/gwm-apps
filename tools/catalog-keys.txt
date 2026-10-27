@@ -1,0 +1,3 @@
+# Открытые ключи автора для проверки подписей релизов (X.509 SubjectPublicKeyInfo, base64, один ключ в строке).
+# Те же ключи вшиты в каталог на телефоне и на ГУ (gwm-install, CatalogSig.KEYS). Закрытый ключ здесь не хранится.
+MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEM6N7yQnERd2e4s5Va7CuCNP+SBGJxr+bv6tc7XkcEhpDBsFuh6LS2WHNmatO2nRcLItSx0csUQNbglcOsQsSeg==
