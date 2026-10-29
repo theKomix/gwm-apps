@@ -55,7 +55,9 @@ case "$TAG" in
   tboxrules-v*)   APP=tboxrules;   VER="${TAG#tboxrules-v}";   PREFIX="tboxrules-v" ;;
   comfort-v*)     APP=comfort;     VER="${TAG#comfort-v}";     PREFIX="comfort-v" ;;
   gwm-install-v*) APP=gwm-install; VER="${TAG#gwm-install-v}"; PREFIX="gwm-install-v" ;;
-  *) echo "Тег $TAG не похож на <приложение>-v<версия> (dimmer, tboxrules, comfort, gwm-install)" >&2; exit 2 ;;
+  offroad-lite-v*) APP=offroad-lite; VER="${TAG#offroad-lite-v}"; PREFIX="offroad-lite-v" ;;
+  offroad-v*)     APP=offroad;     VER="${TAG#offroad-v}";     PREFIX="offroad-v" ;;
+  *) echo "Тег $TAG не похож на <приложение>-v<версия> (dimmer, tboxrules, comfort, gwm-install, offroad, offroad-lite)" >&2; exit 2 ;;
 esac
 
 for t in gh openssl shasum python3 base64; do

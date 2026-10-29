@@ -24,6 +24,8 @@ APPS = {
     "tboxrules": "tboxrules-v",
     "comfort": "comfort-v",
     "gwm-install": "gwm-install-v",
+    "offroad": "offroad-v",
+    "offroad-lite": "offroad-lite-v",
 }
 
 
