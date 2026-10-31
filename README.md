@@ -11,7 +11,7 @@
 | [TBOX: только Wi-Fi](tboxrules/README.md) | <!-- v:tboxrules --> [0.1.0](https://github.com/theKomix/gwm-apps/releases/tag/tboxrules-v0.1.0) <!-- /v --> | Интернет для приложений на ГУ — только через Wi-Fi, трафик сим-карты TBOX не тратится |
 | [GWM Comfort](comfort/README.md) | <!-- v:comfort --> [0.7.2](https://github.com/theKomix/gwm-apps/releases/tag/comfort-v0.7.2) <!-- /v --> | Сценарии комфорта: по запуску двигателя, дню и ночи, включению ГУ, пассажиру включает подогрев, вентиляцию, обогрев, меняет яркость и источник звука |
 | [GWM Install](gwm-install/README.md) | <!-- v:gwm-install --> [0.2.1](https://github.com/theKomix/gwm-apps/releases/tag/gwm-install-v0.2.1) <!-- /v --> | Ставит APK на ГУ с телефона по Wi-Fi, в том числе на штатных прошивках: кабель нужен один раз, для самого менеджера |
-| [Внедорожье](offroad/README.md) | <!-- v:offroad --> [0.1.2](https://github.com/theKomix/gwm-apps/releases/tag/offroad-v0.1.2) <!-- /v --> | Виджет для прошивки GWM-club: кнопки автовключения парктроника и камеры по повороту, данные шин и режимы движения |
+| [Внедорожье](offroad/README.md) | <!-- v:offroad --> [0.1.3](https://github.com/theKomix/gwm-apps/releases/tag/offroad-v0.1.3) <!-- /v --> | Виджет для прошивки GWM-club: кнопки автовключения парктроника и камеры по повороту, данные шин и режимы движения |
 | [Внедорожье Lite](offroad-lite/README.md) | <!-- v:offroad-lite --> [0.1.1](https://github.com/theKomix/gwm-apps/releases/tag/offroad-lite-v0.1.1) <!-- /v --> | Те же две кнопки, компас, тангаж и крен в отдельном окне, для штатной прошивки |
 
 ## Общее для всех
