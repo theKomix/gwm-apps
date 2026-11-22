@@ -269,14 +269,26 @@ Tank 300: работают. Пока на ГУ включён «peripheral», ф
 ## Версии
 
 <!-- versions -->
-Актуальная версия — **0.3.1** от 19.11.2026: [gwm-install-hu-0.3.1.apk](https://github.com/theKomix/gwm-apps/releases/download/gwm-install-v0.3.1/gwm-install-hu-0.3.1.apk), [gwm-install-lite-0.3.1.apk](https://github.com/theKomix/gwm-apps/releases/download/gwm-install-v0.3.1/gwm-install-lite-0.3.1.apk), [gwm-install-phone-0.3.1.apk](https://github.com/theKomix/gwm-apps/releases/download/gwm-install-v0.3.1/gwm-install-phone-0.3.1.apk), [описание релиза](https://github.com/theKomix/gwm-apps/releases/tag/gwm-install-v0.3.1).
+Актуальная версия — **0.3.2** от 22.11.2026: [gwm-install-hu-0.3.2.apk](https://github.com/theKomix/gwm-apps/releases/download/gwm-install-v0.3.2/gwm-install-hu-0.3.2.apk), [gwm-install-lite-0.3.2.apk](https://github.com/theKomix/gwm-apps/releases/download/gwm-install-v0.3.2/gwm-install-lite-0.3.2.apk), [gwm-install-phone-0.3.2.apk](https://github.com/theKomix/gwm-apps/releases/download/gwm-install-v0.3.2/gwm-install-phone-0.3.2.apk), [описание релиза](https://github.com/theKomix/gwm-apps/releases/tag/gwm-install-v0.3.2).
+
+- «Мои ГУ» показывает «в сети» только для ГУ, которое ответило. Раньше хватало записи в mDNS, а она остаётся после выключения ГУ и есть уже в момент загрузки. Человек садился в машину, видел «в сети», нажимал и ждал. Теперь ГУ проверяется каждые три секунды, и отвечающее появляется в списке само.
+- Если на ГУ работает Кокпит, каталог больше не предлагает «обновить» его до GWM Install. В разделе «Менеджер на ГУ» стоит карточка «Кокпит … · обновляется отдельно». Это работает с теми сборками Кокпита, которые сообщают о себе в ответе менеджера; для остальных предложение остаётся, и нажимать его не нужно.
+- Журналы скачиваются в службе передачи, как отправка и установка: экран может погаснуть, приложение можно свернуть. Если скачивание кончилось в свёрнутом приложении, придёт уведомление, а «Поделиться» покажет экран с итогом вместо системного меню.
+- В экранах телефона и ГУ «установить» вместо «поставить»: «Как установить менеджер на ГУ», «Удалить с ГУ и установить заново», «Включено: установка с запросом».
+
+Предыдущие версии:
+
+<details>
+<summary>0.3.1 от 19.11.2026</summary>
 
 - Клиент на Android 17 больше не мерцает. Если приложению не выдано право на локальную сеть, оно открывало системное окно выбора, возвращалось на экран и открывало окно снова, и так по кругу. Теперь поиск ГУ запускается, только когда право выдано.
 - Экран скачивания журналов стал понятнее: заголовок «Скачиваем журналы», строка «Получено N МБ», бегущая полоса и кнопка «Отменить». Общий размер заранее неизвестен, поэтому полоса без заполнения.
 - Окно «Отдать журналы телефону…?» на ГУ теперь засчитывает ответ, даже если телефон успел бросить запрос. Раньше окно оставалось на экране, согласие терялось, и следующие попытки ждали до тайм-аута.
 - В архиве журналов файл со сведениями о ГУ называется `INFO.txt` вместо `ГУ.txt`: консольный `unzip` на macOS не создаёт файл с кириллицей в имени.
 
-Предыдущие версии:
+[gwm-install-hu-0.3.1.apk](https://github.com/theKomix/gwm-apps/releases/download/gwm-install-v0.3.1/gwm-install-hu-0.3.1.apk), [gwm-install-lite-0.3.1.apk](https://github.com/theKomix/gwm-apps/releases/download/gwm-install-v0.3.1/gwm-install-lite-0.3.1.apk), [gwm-install-phone-0.3.1.apk](https://github.com/theKomix/gwm-apps/releases/download/gwm-install-v0.3.1/gwm-install-phone-0.3.1.apk), [описание релиза](https://github.com/theKomix/gwm-apps/releases/tag/gwm-install-v0.3.1).
+
+</details>
 
 <details>
 <summary>0.2.1 от 27.10.2026</summary>
